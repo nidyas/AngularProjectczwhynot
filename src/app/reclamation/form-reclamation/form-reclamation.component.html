@@ -1,0 +1,26 @@
+<form [formGroup]="FormRec" (ngSubmit)="addRec()">
+    <div class="form-group col-md-6">
+        <label>Type DE Reclamation</label>
+        <select name="typeRec"  class="form-control" type="text">
+            <option value="Note">Note</option>
+            <option value="Absence">Absence</option>
+            <option value="Autres">Autres</option>
+        </select>
+      </div>
+   <div class="form-group col-md-6">
+    <label>   
+      description
+    </label>
+    <input type="text" formControlName="desc" name="desc">
+    <div *ngIf="FormRec.controls['desc'].invalid">
+        <p  *ngIf="FormRec.controls['desc'].hasError('required')" style="color:red">
+          this field is required
+        </p>
+    </div>
+    <br>
+    </div>
+    <button type="submit" [disabled]="!FormRec.valid" >
+      save
+    </button>
+  </form>
+  
