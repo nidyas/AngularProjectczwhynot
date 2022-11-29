@@ -1,0 +1,30 @@
+<h1>{{title}}</h1>
+<table class="table">
+<thead>
+  <tr>
+    <th>id</th>
+    <th>nameEquipe</th>
+    <th>niveauEquipe</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let e of listEquipe">
+    <td>{{e.idEquipe}}</td>
+    <td>{{e.nomEquipe}}</td>
+    <td>{{e.niveau}}</td>
+    <td>
+        <button class="btn btn-sm btn-primary"[routerLink]="['/Equipes/add']">
+            Add
+        </button>
+        &nbsp;
+      <button class="btn btn-sm btn-danger" (click)="deleteEquipe(e)">
+        delete
+      </button>
+      &nbsp;
+      <a class="btn btn-sm btn-warning"[routerLink]="['/Equipes/updateEqp',e.idEquipe]">
+        update
+      </a>
+    </td>
+  </tr>
+</tbody>
+</table>
